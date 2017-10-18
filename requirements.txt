@@ -1,0 +1,3 @@
+pyyaml
+bcrypt
+git+git://github.com/dssg/timechop.git@rename_keys

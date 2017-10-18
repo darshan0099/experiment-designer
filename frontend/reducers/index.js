@@ -36,7 +36,11 @@ const initialState = {
 const app = createReducer(initialState, {
   [TIMECHOP_UPDATE]: (state, payload) => {
     let newState = clone(state)
-    newState.timeChopData[payload.field] = payload.value.split(',')
+    if(payload.field.endsWith('Time') || payload.field.endsWith('Frequency')) {
+      newState.timeChopData[payload.field] = payload.value
+    } else {
+      newState.timeChopData[payload.field] = payload.value.split(',')
+    }
     return newState
   },
   [SET_MATRIX_LOADING]: (state, payload) => {
